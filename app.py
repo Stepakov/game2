@@ -12,7 +12,10 @@ while True:
     out_colors( "blue", "Player {} moves".format( player ) )
     pos = int( input( colored( "Which row: ", "green") ) )
     qua = int( input( colored( "How much: ", 'green' ) ) )
-    get_from_heap( pos - 1, qua )
+    res = get_from_heap( pos, qua )
+    if not res:
+        print( "wrong position" )
+        continue
     if is_gameover():
         break
     player = 1 if player == 2 else 2
